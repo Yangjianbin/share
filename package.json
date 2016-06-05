@@ -1,0 +1,25 @@
+{
+  "name": "share",
+  "version": "1.0.0",
+  "description": "gezi share",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline"
+  },
+  "keywords": [
+    "share"
+  ],
+  "author": "jianbinYang",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jsx-loader": "^0.13.2",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
