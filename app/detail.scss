@@ -1,5 +1,112 @@
 @import "var";
-body{
-    background-color: $red;
-    color:gray;
+@import "common";
+
+.carousel{
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    .carousel-imgs{
+
+    }
+    .carousel-dots{
+
+    }
+}
+
+.details{
+    padding-left: $ft24;
+    padding-right: $ft24;
+    border-bottom: rgba(0,0,0,.30);
+    .detail-price{
+        padding-top: $ft40;
+        padding-bottom: $ft40;
+        .detail-price-int{
+            font-size: $ft40;
+            color:$orange;
+        }
+        .detail-price-decimal{
+            font-size: $ft26;
+            color:$orange;
+        }
+        .detail-oldprice{
+            color:rgba(0,0,0,.54);
+            font-size: $ft20;
+        }
+        .detail-stock{
+            float: right;
+            color:rgba(0,0,0,.54);
+        }
+    }
+    .detail-title{
+        font-size: $ft26;
+        color:rgba(0,0,0,.87);
+        padding-bottom: $ft40;
+    }
+    .detail-item{
+        border-top: rgba(0,0,0,.12);
+        padding-top: $ft20;
+        padding-bottom: $ft20;
+        .detail-item-title{
+            font-size: $ft30;
+            line-height: 1.8em;
+            color:rgba(0,0,0,.54);
+        }
+        .detail-item-entry{
+            display: flex;
+            display: -webkit-flex;
+            align-items: flex-start;
+            font-size: $ft20;
+            color:rgba(0,0,0,.54);
+            line-height: 2.2em;
+        }
+        .detail-item-i{
+            font-size: $ft20;
+            color:rgba(0,0,0,.54);
+            line-height: 2.2em;
+            flex-shrink:0;
+        }
+        .detail-item-cont{
+            font-size: $ft20;
+            color:rgba(0,0,0,.87);
+        }
+    }
+}
+
+.exchange{
+    text-align: center;
+    padding:2.5rem  3rem;
+    .exchange-btn{
+        background-color: $green;
+        border-radius: 6px;
+        color:rgba(255,255,255,.87);
+        font-size: $ft34;
+        display: block;
+        line-height: 2em;
+    }
+}
+
+.save-pay{
+    font-size: $ft20;
+    color:rgba(0,0,0,.54);
+    background-color: #cecece;
+    line-height: 5rem;
+    padding-left: 5rem;
+    padding-right: 2em;
+    background-image: url(../images/btn_safety.png);
+    background-position: $ft24 center;
+    background-repeat: no-repeat;
+    position: relative;
+    &:before{
+        content:"";
+        position: absolute;
+        top:50%;
+        transform: translate(0,-50%);
+        right: $ft24;
+        background-image: url(../images/btn_to_0.png);
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        height: 2em;
+        width: 2em;
+
+    }
 }

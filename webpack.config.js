@@ -23,7 +23,8 @@ module.exports = {
             loader: 'jsx-loader?harmony'
         }, {
             test: /\.scss$/,
-            loader: 'style!css!sass?sourceMap'
+            // loader: 'style!css!sass?sourceMap'
+            loader : ExtractTextPlugin.extract('style-loader','css!sass?sourceMap')
         }, {
             test: /\.(png|jpg)$/,
             loader: 'url-loader?limit=8192'

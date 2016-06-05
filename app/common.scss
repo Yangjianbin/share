@@ -1,0 +1,118 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, img, dl, dt, dd, table, th, td, blockquote, fieldset, div, strong, label, em {
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
+ul, ol, li {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.hidden {
+    visibility: hidden;
+}
+.none {
+    display: none;
+}
+.clearfix {
+    display: block;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+    zoom: 1;
+}
+.img-full{
+    width:100%;
+    display: block;
+}
+body{
+    line-height: 1;
+    font-size: 16px;
+    font-family: 'Microsoft Yahei';
+}
+
+
+header{
+    position: relative;
+    .header-figure{
+        position: absolute;
+        top:50%;
+        transform:translate(0px , -50%);
+        left:0px;
+        width:100%;
+        text-align: center;
+
+        img{
+            width:45%;
+        }
+        .logo-text{
+            font-size: $ft24;
+            color:$white;
+            letter-spacing: .75rem;
+            text-indent: .75rem;
+            padding: 2.5rem;
+        }
+        .header-btn{
+            font-size: $ft34;
+            border-radius: 6px;
+            display: inline-block;
+            width:38%;
+            line-height: 2em;
+            border:2px solid $white;
+        }
+        .download-btn{
+            color:$green;
+            background-color: $white;
+        }
+        .open-btn{
+            color:white;
+            margin-left: 2rem;
+        }
+    }
+}
+
+
+footer{
+    display: flex;
+    display: -webkit-flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-left: $ft32;
+    padding-right: $ft40;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgba(255,255,255,.92);
+    .footer-text{
+        font-size: $ft24;
+        color:rgba(0,0,0,.54);
+        line-height: 1.5em;
+        width:33%;
+        padding-right:3em;
+    }
+    .footer-download-btn{
+        border-radius: 6px;
+        background-color: $green;
+        font-size: $ft34;
+        line-height: 2em;
+        padding:0 1em;
+        display: block;
+        color:$white;
+
+    }
+}
