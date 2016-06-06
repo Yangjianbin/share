@@ -13,3 +13,10 @@ $white : #fff;
 $green : #22b98e;
 $orange : #ff9800;
 $black : #000;
+@mixin bgblack($opacity:.5) {
+    background-color:rgba(0,0,0,$opacity);
+}
+@mixin ftblack($opacity:.5) {
+    color:rgba(0,0,0,$opacity);
+}
+

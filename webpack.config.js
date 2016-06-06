@@ -1,17 +1,17 @@
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
 module.exports = {
     //插件项
     plugins: [commonsPlugin, new ExtractTextPlugin("[name].css")],
     //页面入口文件配置
-    entry: {
-        detail: './app/detail.js'
-    },
+    entry:  {detail:'./app/detail'},
     //入口文件输出配置
     output: {
-        path: 'dest/js/',
-        filename: '[name].js'
+        path: path.join(__dirname, './dest'),
+        filename: '[name].js',
+        publicPath: '/dest/'
     },
     module: {
         //加载器配置

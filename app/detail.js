@@ -1,2 +1,8 @@
 require('./detail.scss')
-console.log('ok')
+
+
+
+var carousel = require('./components/carousel');
+carousel.init();
+
+console.log('share ok...')

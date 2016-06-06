@@ -1,22 +1,41 @@
 @import "var";
 @import "common";
-
 .carousel{
     width: 100%;
-    height: 200px;
-    background-color: red;
+    position:relative;
     .carousel-imgs{
-
+        img{
+            display:block;
+            width:100%;
+            display: none;
+        }
+        img.active{
+            display: block;
+        }
     }
     .carousel-dots{
-
+        position:absolute;
+        top:80%;
+        width:100%;
+        text-align:center;
+        li{
+            height:1em;
+            width:1em;
+            display:inline-block;
+            border-radius:50%;
+            margin:0 .8rem;
+            background-color:#fff;
+        }
+        li.active{
+            background-color:#000;
+        }
     }
 }
 
 .details{
     padding-left: $ft24;
     padding-right: $ft24;
-    border-bottom: rgba(0,0,0,.30);
+    border-bottom:1px solid rgba(0,0,0,.30);
     .detail-price{
         padding-top: $ft40;
         padding-bottom: $ft40;
@@ -29,45 +48,46 @@
             color:$orange;
         }
         .detail-oldprice{
-            color:rgba(0,0,0,.54);
+            @include ftblack(.54);
             font-size: $ft20;
         }
         .detail-stock{
+            line-height:3.6rem;
             float: right;
-            color:rgba(0,0,0,.54);
+            @include ftblack(.54);
         }
     }
     .detail-title{
         font-size: $ft26;
-        color:rgba(0,0,0,.87);
+        @include ftblack(.87);
         padding-bottom: $ft40;
     }
     .detail-item{
-        border-top: rgba(0,0,0,.12);
+        border-top:1px solid rgba(0,0,0,.12);
         padding-top: $ft20;
         padding-bottom: $ft20;
         .detail-item-title{
             font-size: $ft30;
             line-height: 1.8em;
-            color:rgba(0,0,0,.54);
+            @include ftblack(.54);
         }
         .detail-item-entry{
             display: flex;
             display: -webkit-flex;
             align-items: flex-start;
             font-size: $ft20;
-            color:rgba(0,0,0,.54);
+            @include ftblack(.54);
             line-height: 2.2em;
         }
         .detail-item-i{
             font-size: $ft20;
-            color:rgba(0,0,0,.54);
+            @include ftblack(.54);
             line-height: 2.2em;
             flex-shrink:0;
         }
         .detail-item-cont{
             font-size: $ft20;
-            color:rgba(0,0,0,.87);
+            @include ftblack(.87);
         }
     }
 }
@@ -87,7 +107,7 @@
 
 .save-pay{
     font-size: $ft20;
-    color:rgba(0,0,0,.54);
+    @include ftblack(.54);
     background-color: #cecece;
     line-height: 5rem;
     padding-left: 5rem;
@@ -107,6 +127,5 @@
         background-position: 0 center;
         height: 2em;
         width: 2em;
-
     }
 }
