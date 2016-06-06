@@ -1,36 +1,5 @@
 @import "var";
 @import "common";
-.carousel{
-    width: 100%;
-    position:relative;
-    .carousel-imgs{
-        img{
-            display:block;
-            width:100%;
-            display: none;
-        }
-        img.active{
-            display: block;
-        }
-    }
-    .carousel-dots{
-        position:absolute;
-        top:80%;
-        width:100%;
-        text-align:center;
-        li{
-            height:1em;
-            width:1em;
-            display:inline-block;
-            border-radius:50%;
-            margin:0 .8rem;
-            background-color:#fff;
-        }
-        li.active{
-            background-color:#000;
-        }
-    }
-}
 
 .details{
     padding-left: $ft24;
@@ -50,10 +19,12 @@
         .detail-oldprice{
             @include ftblack(.54);
             font-size: $ft20;
+            padding-left: $ft12;
         }
         .detail-stock{
             line-height:3.6rem;
             float: right;
+            font-size: $ft20;
             @include ftblack(.54);
         }
     }
@@ -119,6 +90,7 @@
     &:before{
         content:"";
         position: absolute;
+        opacity: .6;
         top:50%;
         transform: translate(0,-50%);
         right: $ft24;
@@ -128,4 +100,11 @@
         height: 2em;
         width: 2em;
     }
+}
+
+.goods-discuss{
+    font-size: $ft24;
+    padding:$ft24;
+    @include bgblack(.10);
+    @include ftblack();
 }

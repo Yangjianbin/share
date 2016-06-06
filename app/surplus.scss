@@ -1,0 +1,175 @@
+@import "var";
+@import "common";
+
+.details{
+    padding-left: $ft24;
+    padding-right: $ft24;
+    border-bottom:1px solid rgba(0,0,0,.30);
+    .detail-price{
+        padding-top: $ft40;
+        padding-bottom: $ft40;
+        .detail-price-int{
+            font-size: $ft40;
+            color:$orange;
+        }
+        .detail-price-decimal{
+            font-size: $ft26;
+            color:$orange;
+        }
+        .detail-oldprice{
+            @include ftblack(.54);
+            font-size: $ft20;
+            padding-left: $ft12;
+        }
+
+    }
+    .detail-title{
+        font-size: $ft26;
+        @include ftblack(.87);
+        padding-bottom: $ft40;
+    }
+    .detail-source{
+        border-top: 1px solid rgba(0,0,0,.12);
+        border-bottom: 1px solid rgba(0,0,0,.12);
+        display: flex;
+        padding:2rem 0;
+
+        .detail-source-avator{
+            padding-right: 1rem;
+            height: 3.75rem;
+            img{
+                display: block;
+                border-radius: 50%;
+                height: 3.75rem;
+            }
+        }
+        .detail-source-con{
+            flex:2;
+            .detail-source-username{
+                font-size: $ft26;
+                opacity: .87;
+                color:#0099e5;
+                height: 3.75rem;
+                line-height: 3.75rem;
+            }
+            .detail-source-buy-btn{
+                color:rgba(255,255,255,.87);
+                font-size: $ft26;
+                background-color: $orange;
+                border-radius: 4px;
+                height: 3.75rem;
+                float: right;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            .detail-source-items{
+                @include ftblack(.87);
+                font-size: $ft26;
+                padding-bottom: $ft24;
+                padding-top: $ft40;
+                text-align: left;
+                .detail-source-item{
+                    margin-right: 1em;
+
+                }
+
+            }
+            .detail-source-safty-real{
+                font-size: $ft26;
+                color:$green;
+                opacity: .87;
+
+                .detail-source-safty{
+                    padding-left: 2em;
+                    background-image: url(../images/btn_alipay.png);
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                }
+                .detail-source-real{
+                    padding-left: 2em;
+                    background-image: url(../images/btn_prove.png);
+                    background-position: 4px center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
+
+.view{
+    font-size: $ft20;
+    @include ftblack();
+    line-height: 7rem;
+}
+
+.story{
+    font-size: $ft26;
+    @include ftblack(.87);
+    padding:0 0 2rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.30);
+    p{
+        padding:1rem $ft48;
+        line-height: 1.6em;
+    }
+    .story-listen{
+        font-size: $ft26;
+        float: right;
+        margin-right: $ft24;
+        border-radius: 4rem;
+        background-color: $green;
+        opacity: .87;
+        border:none;
+        color:rgba(255,255,255,.87);
+        line-height:4rem;
+        width:12rem;
+        background-image: url(../images/btn_tape_0.png);
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+    }
+}
+
+.exchange{
+    text-align: center;
+    padding:2.5rem  3rem;
+    .exchange-btn{
+        background-color: $green;
+        border-radius: 6px;
+        color:rgba(255,255,255,.87);
+        font-size: $ft34;
+        display: block;
+        line-height: 2em;
+    }
+}
+
+.save-pay{
+    font-size: $ft20;
+    @include ftblack(.54);
+    background-color: #cecece;
+    line-height: 5rem;
+    padding-left: 5rem;
+    padding-right: 2em;
+    background-image: url(../images/btn_safety.png);
+    background-position: $ft24 center;
+    background-repeat: no-repeat;
+    position: relative;
+    &:before{
+        content:"";
+        position: absolute;
+        opacity: .6;
+        top:50%;
+        transform: translate(0,-50%);
+        right: $ft24;
+        background-image: url(../images/btn_to_0.png);
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        height: 2em;
+        width: 2em;
+    }
+}
+
+.goods-discuss{
+    font-size: $ft30;
+    padding:$ft24;
+    @include bgblack(.10);
+    @include ftblack(.54);
+}

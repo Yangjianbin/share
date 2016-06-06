@@ -6,7 +6,7 @@ module.exports = {
     //插件项
     plugins: [commonsPlugin, new ExtractTextPlugin("[name].css")],
     //页面入口文件配置
-    entry:  {detail:'./app/detail'},
+    entry:  {detail:'./app/detail',surplus:'./app/surplus',comty:'./app/comty'},
     //入口文件输出配置
     output: {
         path: path.join(__dirname, './dest'),

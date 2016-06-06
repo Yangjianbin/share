@@ -16,25 +16,27 @@ var carousel = {
     init:function(opt = {}){
         var self = this;
         this.opt = $.extend(opts,opt);
-        this.interval = setTimeInterval(function(){
+        this.interval = setInterval(function(){
             self.start();
-        },4000);
+        },3000);
         // console.log(this.opt);
     },
     start:function(){
-        var carousel = $(this.opt.carousel);
+        var carousel = $(this.opt.carousel),opt = this.opt;
         carousel.each(function(){
             var self = $(this),
-            $imgs = self.find(this.opt.imgs),
-            $dots = self.find(this.opt.dots),
+            $imgs = self.find(opt.imgs),
+            $dots = self.find(opt.dots),
             current_idx = $dots.children('.active').index(),
             total_num = $dots.children().size();
             var next_idx = (current_idx+1) % total_num;
-            $imgs.add($dots).children('.active').removeClass('active').end().eq(next_idx).addClass('active');
+            $imgs.children('.active').removeClass('active').end().children().eq(next_idx).addClass('active');
+            $dots.children('.active').removeClass('active').end().children().eq(next_idx).addClass('active');
+
         });
     },
     stop:function(){
-        clearTimeInterval(this.interval);
+        clearInterval(this.interval);
     }
 }
 

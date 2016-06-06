@@ -47,6 +47,114 @@ body{
     font-family: 'Microsoft Yahei';
 }
 
+.carousel{
+    width: 100%;
+    position:relative;
+    .carousel-imgs{
+        img{
+            width:100%;
+            display: none;
+            transition: display 1s;
+            -webkit-transition: display 1s;
+        }
+        img.active{
+            display: block;
+            transition: display 1s;
+            -webkit-transition: display 1s;
+        }
+
+    }
+    .carousel-dots{
+        position:absolute;
+        top:80%;
+        width:100%;
+        text-align:center;
+        li{
+            height:1em;
+            width:1em;
+            display:inline-block;
+            border-radius:50%;
+            margin:0 $ft12;
+            background-color:rgba(0,0,0,.10);
+        }
+        li.active{
+            background-color:#fff;
+        }
+    }
+}
+
+.comments-wrap{
+
+    div.comments:nth-child(1){
+        border-top: none;
+    }
+
+}
+.comments{
+    padding-left: $ft24;
+    padding-right: $ft24;
+    border-bottom:1px solid rgba(0,0,0,.30);
+    border-top: $ft24 solid #ebebeb;
+    .load-discuss-wrap{
+        padding:$ft40 $ft24;
+        .load-discuss{
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin:auto;
+            background-color: transparent;
+            border-radius: 6px;
+            border:1px solid #ddd;
+            @include ftblack();
+            font-size: $ft34;
+            line-height: 2em;
+            font-family: 'Microsoft Yahei';
+        }
+    }
+
+    .comments-header{
+        font-size: $ft20;
+        padding:$ft24 0;
+        @include ftblack();
+    }
+    .comment-item{
+        padding:$ft24 0;
+        border-top:1px solid rgba(0,0,0,.12);
+        display: flex;
+        -webkit-display:flex;
+        .comment-avator{
+            margin:0 1rem;
+            img{
+                border-radius: 50%;
+            }
+        }
+        .comment-con{
+            .comment-username{
+                padding-bottom: .5rem;
+                font-size: $ft26;
+                color:#0099e5;
+                opacity: .87;
+                padding-bottom: .5rem;
+                .comment-floor{
+                    font-size: $ft20;
+                    padding-right: $ft24;
+                    @include ftblack();
+                }
+            }
+            .comment-body{
+                font-size: $ft26;
+                @include ftblack();
+                line-height: 1.6em;
+                padding-bottom: 1.6em;
+            }
+            .comment-time{
+                font-size: $ft20;
+                @include ftblack();
+            }
+        }
+    }
+
+}
 
 header{
     position: relative;
