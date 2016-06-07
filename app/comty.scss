@@ -8,7 +8,18 @@
         font-size: $ft30;
         @include ftblack(.87);
         line-height: $ft36;
+
+        &:before{
+            content: '估';
+            background-color: #ff9000;
+            font-size: $ft20;
+            transform:translate(0,-0.1rem);
+            padding:.1rem .4rem;
+            border-radius: 4px;
+            color:$white;
+        }
     }
+
     .detail-info{
         display: flex;
         margin-top: $ft40;
@@ -38,6 +49,30 @@
             }
         }
     }
+    .detail-imgs0{
+        display: flex;
+        padding-top: .6rem;
+        .detail-img{
+            flex-grow: 1;
+            img{
+                width:auto;
+            }
+        }
+    }
+    .detail-imgs{
+        display: flex;
+        padding-top: .6rem;
+        .detail-img{
+            flex-grow: 0;
+            img{
+                width:100%;
+                display: block;
+            }
+        }
+    }
+
+
+
     .detail-desc{
         font-size: $ft30;
         @include ftblack(.87);
