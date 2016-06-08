@@ -16,50 +16,46 @@
             <p class="logo-text">
                 一个属于大学生的闲置物品交易社区
             </p>
-            <a href="#" class="header-btn download-btn">下载App</a><a href="" class="header-btn open-btn">从App中打开</a>
+            <a href="http://app.uboxs.com/download.php" class="header-btn download-btn">下载App</a><a href="http://app.uboxs.com/download.php" class="header-btn open-btn">从App中打开</a>
         </div>
     </header>
-    <div class="section">
+    <div class="section" id="app">
         <div class="carousel">
             <div class="carousel-imgs">
-                <img class="active" src="http://placeholder.qiniudn.com/640x200" alt="">
-                <img src="http://placeholder.qiniudn.com/640x200/ff0000" alt="">
-                <img src="http://placeholder.qiniudn.com/640x200/00ff00" alt="">
+                <img v-for="o in Images" class="{'active':$index==0}" src="http://img.uboxs.net/{{o.imageid}}-{{o.hash}}" alt="">
             </div>
             <ul class="carousel-dots">
-                <li class="carousel-dot active"></li>
-                <li class="carousel-dot"></li>
-                <li class="carousel-dot"></li>
+                <li v-for="o in Images.length"  class="{'active':o==0} carousel-dot"></li>
             </ul>
         </div>
         <div class="details">
             <div class="detail-price">
-                <span class="detail-price-int">￥2300.</span>
+                <span class="detail-price-int">￥{{Item.price/100}}.</span>
                 <span class="detail-price-decimal">00</span>
-                <span class="detail-oldprice">原价：<span style="text-decoration:line-through">￥5000.00</span></span>
+                <span class="detail-oldprice">原价：<span style="text-decoration:line-through">￥{{Item.oldprice/100}}.00</span></span>
                 <!-- <span class="detail-stock">库存：20</span> -->
             </div>
             <div class="detail-title">
-                吉他 ibanez 40 寸民谣吉他。几乎全新。酷黑
+                {{Item.title}}
             </div>
 
             <div class="detail-source">
                 <div class="detail-source-avator">
-                    <img src="http://placeholder.qiniudn.com/50x50/ff0000" alt="">
+                    <img src=" http://img.uboxs.net/{{Seller.headiconid}}-{{SellerHeadIcon.hash}} " alt="">
                 </div>
                 <div class="detail-source-con">
                     <div class="detail-source-username">
-                        驱魔人景中
+                        {{Seller.nickname}}
                         <a  href="#" class="detail-source-buy-btn">
                             买买买
                         </a>
                     </div>
                     <div class="detail-source-items">
                         <span class="detail-source-item">
-                            库存：10
+                            库存：{{Item.amount}}
                         </span>
                         <span class="detail-source-item">
-                            成色：全新
+                            成色：{{Item.degree}}
                         </span>
                     </div>
                     <div class="detail-source-safty-real">
@@ -76,7 +72,7 @@
             </div>
 
             <div class="view">
-                5分钟前 · 浙江大学宁波理工学院 · 浏览 856
+                 {{Item.addtime | lastMinutes}}前 · {{school_location}} · 浏览 {{Item.value_click}}
             </div>
 
         </div>
@@ -87,40 +83,17 @@
             宝贝故事
         </div>
         <div class="story clearfix">
-            <p>日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商日本国内的吉他厂商
-            。</p>
+            <p>{{Item.content_decode}}</p>
             <button class="story-listen">60′′</button>
         </div>
         <div class="goods-discuss">
             宝贝评论
         </div>
-        <div class="comments">
-            <div class="comments-header">
-                热门评论
-            </div>
-            <div class="comment-item">
-                <div class="comment-avator">
-                    <img src="http://placeholder.qiniudn.com/50x50/ff0000" alt="">
-                </div>
-                <div class="comment-con">
-                    <div class="comment-username">
-                        云格子铺官方
-                        <span class="comment-floor fr">236楼</span>
-                    </div>
-
-                    <div class="comment-body">
-                        以你目前的描述来看，1000块钱上下是比较合理的，建议来云格子铺实体店。
-                    </div>
-                    <div class="comment-time">
-                        02 月 11 日  13:24
-                    </div>
-                </div>
-            </div>
 
 
 
-        </div>
-
+    </div>
+    <div class="section">
         <div class="comments">
             <div class="comments-header">
                 最新评论
@@ -151,6 +124,7 @@
             </div>
 
         </div>
+        
     </div>
     <footer>
         <div>
@@ -160,7 +134,7 @@
             一个属于大学生的闲置物品交易社区
         </div>
         <div style="flex-shrink:0;">
-            <a href="#" class="footer-download-btn">
+            <a href="http://app.uboxs.com/download.php" class="footer-download-btn">
                 下载App
             </a>
         </div>
