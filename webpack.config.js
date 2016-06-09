@@ -4,7 +4,20 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 module.exports = {
     //插件项
-    plugins: [commonsPlugin, new ExtractTextPlugin("[name].css")],
+    plugins: [
+        commonsPlugin,
+        new ExtractTextPlugin("[name].css"),
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+    ],
     //页面入口文件配置
     entry:  {detail:'./app/detail',surplus:'./app/surplus',comty:'./app/comty'},
     //入口文件输出配置

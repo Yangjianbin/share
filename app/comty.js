@@ -1,6 +1,7 @@
 require('./comty.scss')
 var $ = require('jquery');
 var Vue = require('vue');
+Vue.config.debug = false;
 Vue.filter('datetime', function(value) {
     var date = new Date();
     date.setTime(value * 1000);
@@ -74,7 +75,7 @@ var vm2 = new Vue({
           data:{post_id:getQueryString('id'),page:1,limit:20},
           dataType:'json',
           success:function(d){
-             console.log(d.result);
+            //  console.log(d.result);
              vm2.$data = d;
           },
           error:function(e){

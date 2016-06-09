@@ -1,6 +1,7 @@
 require('./detail.scss');
 var $ = require('jquery');
 var Vue = require('vue');
+Vue.config.debug = false;
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
@@ -21,7 +22,7 @@ var vm = new Vue({
           data:{id:getQueryString('id')},
           dataType:'json',
           success:function(d){
-             console.log(d.result);
+            //  console.log(d.result);
              vm.$data = d.result;
           },
           error:function(e){
@@ -54,7 +55,7 @@ var vm2 = new Vue({
           data:{item_id:getQueryString('id'),page:1,limit:20},
           dataType:'json',
           success:function(d){
-             console.log(d.result);
+            //  console.log(d.result);
              vm2.$data = d.result;
           },
           error:function(e){

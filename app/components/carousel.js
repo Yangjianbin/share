@@ -13,7 +13,7 @@ var carousel = {
         dots:'.carousel-dots'
     }
     */
-    init:function(opt = {}){
+    init:function(opt){
         var self = this;
         this.opt = $.extend(opts,opt);
         this.interval = setInterval(function(){

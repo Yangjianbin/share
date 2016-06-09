@@ -1,6 +1,7 @@
 require('./surplus.scss')
 var $ = require('jquery');
 var Vue = require('vue');
+Vue.config.debug = false;
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
@@ -13,7 +14,7 @@ Vue.filter('datetime', function(value) {
     return (1 + date.getMonth()) + ' 月 ' + date.getDate() + ' 日  ' + date.getHours() + ':' + date.getMinutes();
 });
 Vue.filter('lastMinutes', function(value) {
-    var d = new Date(value*1000),
+    var d = new Date(value),
         now = new Date(),
         str;
     if (now.getFullYear() - d.getFullYear() > 0) {
@@ -75,7 +76,7 @@ var vm2 = new Vue({
           data:{item_id:getQueryString('itemid'),page:1,limit:20},
           dataType:'json',
           success:function(d){
-             console.log(d.result);
+            //  console.log(d.result);
              vm2.$data = d.result;
           },
           error:function(e){
