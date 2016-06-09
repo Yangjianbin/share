@@ -41,6 +41,9 @@ a {
     width:100%;
     display: block;
 }
+html{
+    font-size:16px;
+}
 body{
     line-height: 1;
     font-size: 16px;
@@ -215,17 +218,21 @@ footer{
         font-size: $ft24;
         color:rgba(0,0,0,.54);
         line-height: 1.5em;
-        width:33%;
-        padding-right:3em;
+        width: 34%;
+        letter-spacing: .1rem;
+        padding-right: 4em;
     }
     .footer-download-btn{
         border-radius: 6px;
         background-color: $green;
         font-size: $ft34;
         line-height: 2em;
-        padding:0 1em;
+        padding:0 .7em;
         display: block;
         color:$white;
 
+    }
+    img{
+        width:6rem;
     }
 }

@@ -1,5 +1,7 @@
 require('./surplus.scss')
 var $ = require('jquery');
+var scale = parseInt($('html').css('font-size')) *  $(window).width() / 720;
+$('html,body').css('font-size',scale );
 var Vue = require('vue');
 Vue.config.debug = false;
 function getQueryString(name) {
@@ -160,9 +162,11 @@ function playPcm(samples) {
     src.start();
 }
 
-E('.story-listen').onclick = function() {
-    var url = E('.story-listen').getAttribute('source');
-    fetchBlob(url, function(blob) {
-        playAmrBlob(blob);
-    });
-};
+if(E('.story-listen')){
+    E('.story-listen').onclick = function() {
+        var url = E('.story-listen').getAttribute('source');
+        fetchBlob(url, function(blob) {
+            playAmrBlob(blob);
+        });
+    };
+}

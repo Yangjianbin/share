@@ -1,5 +1,7 @@
 require('./comty.scss')
 var $ = require('jquery');
+var scale = parseInt($('html').css('font-size')) *  $(window).width() / 720;
+$('html,body').css('font-size',scale );
 var Vue = require('vue');
 Vue.config.debug = false;
 Vue.filter('datetime', function(value) {
