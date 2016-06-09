@@ -84,7 +84,7 @@
         </div>
         <div class="story clearfix">
             <p>{{Item.content_decode}}</p>
-            <button class="story-listen">60′′</button>
+            <button v-if="Item.audio_id!=0" source="http://media.uboxs.net/audio/{{Item.audio_id}}-{{Item.audio_hash}}" class="story-listen">{{Item.audio_length}}′′</button>
         </div>
         <div class="goods-discuss">
             宝贝评论
@@ -93,38 +93,38 @@
 
 
     </div>
-    <div class="section">
+    <div class="section" id="app2">
         <div class="comments">
             <div class="comments-header">
-                最新评论
+                最新评论 ({{total}})
             </div>
-            <div class="comment-item">
+            <div class="comment-item" v-for="(k,o) in Replies">
                 <div class="comment-avator">
-                    <img src="http://placeholder.qiniudn.com/50x50/ff0000" alt="">
+                    <img src="http://img.uboxs.net/{{o.Account.Avatar.id}}-{{o.Account.Avatar.hash}}" alt="">
                 </div>
                 <div class="comment-con">
                     <div class="comment-username">
-                        云格子铺官方
-                        <span class="comment-floor fr">236楼</span>
+                        {{o.Account.nickname}}
+                        <span class="comment-floor fr">{{o.Reply.floor}}楼</span>
                     </div>
 
                     <div class="comment-body">
-                        以你目前的描述来看，1000块钱上下是比较合理的，建议来云格子铺实体店。
+                        {{o.Reply.content}}
                     </div>
                     <div class="comment-time">
-                        02 月 11 日  13:24
+                        {{o.Reply.create | datetime}}
                     </div>
                 </div>
             </div>
 
             <div class="load-discuss-wrap">
-                <button class="load-discuss">
+                <!-- <button class="load-discuss">
                     加载更多
-                </button>
+                </button> -->
             </div>
 
         </div>
-        
+
     </div>
     <footer>
         <div>
@@ -141,6 +141,7 @@
     </footer>
 </div>
 </body>
+<script src="./amrnb.js"></script>
 <script src="./common.js"></script>
 <script src="./surplus.js"></script>
 </html>

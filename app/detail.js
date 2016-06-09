@@ -1,8 +1,12 @@
 require('./detail.scss');
 var $ = require('jquery');
 var Vue = require('vue');
-var vueResource = require('vue-resource');
-Vue.use(vueResource);
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
 Vue.filter('datetime', function (value) {
   var date = new Date();
   date.setTime(value*1000);
@@ -14,7 +18,7 @@ var vm = new Vue({
         $.ajax({
           url:'https://mall.uboxs.com/api/item/detail?type=json',
           type:'post',
-          data:{id:20},
+          data:{id:getQueryString('id')},
           dataType:'json',
           success:function(d){
              console.log(d.result);
@@ -47,7 +51,7 @@ var vm2 = new Vue({
         $.ajax({
           url:'https://v3.api.uboxs.com/item/reply/list?type=json',
           type:'post',
-          data:{item_id:20,page:1,limit:20},
+          data:{item_id:getQueryString('id'),page:1,limit:20},
           dataType:'json',
           success:function(d){
              console.log(d.result);

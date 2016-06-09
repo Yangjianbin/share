@@ -8,6 +8,7 @@
     .detail-price{
         padding-top: $ft40;
         padding-bottom: $ft40;
+        text-indent: -.4rem;
         .detail-price-int{
             font-size: $ft40;
             color:$orange;
@@ -112,6 +113,7 @@
         line-height: 1.6em;
     }
     .story-listen{
+        outline: none;
         font-size: $ft26;
         float: right;
         margin-right: $ft24;
