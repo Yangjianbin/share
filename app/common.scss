@@ -132,6 +132,7 @@ body{
             margin:0 1rem;
             img{
                 border-radius: 50%;
+                height: 3.2rem;
                 width:3.2rem;
             }
         }
@@ -205,7 +206,12 @@ header{
 
 
 footer{
-    display: flex;
+    position: fixed;
+    bottom: 0px;
+    display: -webkit-box;    
+    display: -moz-box;       
+    display: -ms-flexbox;
+    display: flex;  
     display: -webkit-flex;
     align-items:center;
     justify-content: space-between;
@@ -235,4 +241,7 @@ footer{
     img{
         width:6rem;
     }
+}
+[v-cloak] {
+  display: none;
 }

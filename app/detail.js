@@ -22,29 +22,43 @@ var vm = new Vue({
           url:'https://mall.uboxs.com/api/item/detail?type=json',
           type:'post',
           data:{id:getQueryString('id')},
-          dataType:'json',
-          success:function(d){
-            //  console.log(d.result);
-             vm.$data = d.result;
-          },
-          error:function(e){
-             // console.log(e)
-          }
-        })
+          dataType:'json'
+        }).done(function(d){
+            vm.$data = d.result;
+            $.ajax({
+              url:'https://v2.api.uboxs.com/weChatJsApiAuth',
+              success:function(auth){
+                  wx.ready(function(){
+                  var shareData = {
+                    title: d.result.title,
+                    desc: '￥'+d.result.Price.lowest/100+'官网价格：￥'+d.result.OldPrice.lowest/100,
+                    imgUrl: 'http://img.uboxs.net/'+d.result.Cover.id+'-'+d.result.Cover.hash
+                  }
+                  wx.onMenuShareTimeline(shareData);
+                  wx.onMenuShareAppMessage(shareData);
+                  wx.onMenuShareQQ(shareData);
+                  wx.onMenuShareWeibo(shareData);
+                  wx.onMenuShareQZone(shareData);
+                });
+                wx.config({
+                  debug: false,
+                  appId: auth.appid,
+                  timestamp: auth.timestamp,
+                  nonceStr: auth.noncestr,
+                  signature: auth.signature,
+                  jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+                });
+              }
+            })
+        });
 
-        // this.$http.post('https://mall.uboxs.com/api/item/detail?type=json', {id:19}, {
-        //     headers: {
-        //         "X-Requested-With": "XMLHttpRequest"
-        //     },
-        //     emulateJSON: true
-        // }).then(function(response) {
-        //     var data = response.data;
-        //     console.log(data)
-        // }, function(response) {
-        // });
+
+
     },
     data:{
-
+        Images:[],
+        Price:{},
+        OldPrice:{}
     }
 })
 
@@ -57,17 +71,15 @@ var vm2 = new Vue({
           data:{item_id:getQueryString('id'),page:1,limit:20},
           dataType:'json',
           success:function(d){
-            //  console.log(d.result);
              vm2.$data = d.result;
           },
           error:function(e){
-             // console.log(e)
           }
         })
 
     },
     data:{
-
+        Replies:[]
     }
 })
 
