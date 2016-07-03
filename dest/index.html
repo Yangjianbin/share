@@ -17,10 +17,11 @@
             <a href="http://app.uboxs.com/download.php" class="header-btn download-btn">下载App</a><a href="http://app.uboxs.com/download.php" class="header-btn open-btn">从App中打开</a>
         </div>
     </header>
-    <div class="section" id="app">
+    <div class="section" id="app" v-cloak>
         <div class="carousel">
             <div class="carousel-imgs">
-                <img v-for="o in Images" class="{'active':$index==0}" src="http://img.uboxs.net/{{o.id}}-{{o.hash}}" alt="">
+                <img v-for="o in Images" class="{'active':$index==0}" :src="'http://img.uboxs.net/'+o.id+'-'+o.hash" alt="">
+                
             </div>
             <ul class="carousel-dots">
                 <li v-for="o in Images.length"  class="{'active':o==0} carousel-dot"></li>
@@ -59,7 +60,7 @@
         </div>
 
     </div>
-    <div class="section"  id="app2">
+    <div class="section"  id="app2" v-cloak>
         <div class="comments-wrap">
 
 
@@ -108,6 +109,7 @@
     </footer>
 </div>
 </body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="./common.js"></script>
 <script src="./detail.js"></script>
 </html>

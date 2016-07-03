@@ -16,7 +16,8 @@ Vue.filter('datetime', function(value) {
     return (1 + date.getMonth()) + ' 月 ' + date.getDate() + ' 日  ' + date.getHours() + ':' + date.getMinutes();
 });
 Vue.filter('lastMinutes', function(value) {
-    var d = new Date(value),
+    if(!value) return '';
+    var d = new Date(Date.parse(value.replace(/-/g,'/'))),
         now = new Date(),
         str;
     if (now.getFullYear() - d.getFullYear() > 0) {
@@ -42,25 +43,49 @@ var vm = new Vue({
             data: {
                 itemid: getQueryString('itemid')
             },
-            dataType: 'json',
-            success: function(d) {
-
-                $.ajax({
-                    url: 'https://api.uboxs.com/basic/schools?type=json&assoc=true&assign=schools',
-                    type: 'get',
-                    dataType: 'json',
-                    success: function(schools) {
-                        var school = schools.result[d.Item.schoolid]['name'];
-                        var location = schools.result[d.Item.schoolid]['campuses'][d.Item.location]['name'];
-                        d.school_location = school + location;
-                        vm.$data = d;
-                    }
-                })
-
-            },
-            error: function(e) {
-                // console.log(e)
+            dataType: 'json'
+        }).done(function(d){
+            $.ajax({
+                url: 'https://api.uboxs.com/basic/schools?type=json&assoc=true&assign=schools',
+                type: 'get',
+                dataType: 'json',
+                success: function(schools) {
+                    var school = schools.result[d.Item.schoolid]['name'];
+                    var location = schools.result[d.Item.schoolid]['campuses'][d.Item.location]['name'];
+                    d.school_location = school + location;
+                    vm.$data = d;
+                }
+            })
+            var shareImgUrl = 'http://static-test.uboxs.com/html/images/logo.png';
+            if(d.Item.cover.length>1 && d.Cover.hash){
+                shareImgUrl = 'http://img.uboxs.net/'+d.Item.cover+'-'+d.Cover.hash
             }
+            $.ajax({
+              url:'https://v2.api.uboxs.com/weChatJsApiAuth',
+              success:function(auth){
+                  wx.ready(function(){
+                  var shareData = {
+                    title: d.Item.title,
+                    desc: d.Item.content_decode,
+                    imgUrl: shareImgUrl
+                  }
+                  wx.onMenuShareTimeline(shareData);
+                  wx.onMenuShareAppMessage(shareData);
+                  wx.onMenuShareQQ(shareData);
+                  wx.onMenuShareWeibo(shareData);
+                  wx.onMenuShareQZone(shareData);
+                });
+                wx.config({
+                  debug: false,
+                  appId: auth.appid,
+                  timestamp: auth.timestamp,
+                  nonceStr: auth.noncestr,
+                  signature: auth.signature,
+                  jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+                });
+              }
+            })
+
         })
 
     },
@@ -162,11 +187,16 @@ function playPcm(samples) {
     src.start();
 }
 
-if(E('.story-listen')){
-    E('.story-listen').onclick = function() {
-        var url = E('.story-listen').getAttribute('source');
-        fetchBlob(url, function(blob) {
-            playAmrBlob(blob);
-        });
-    };
+window.onload = function(){
+    setTimeout(function(){
+        if(E('.story-listen')){
+            E('.story-listen').onclick = function() {
+                var url = E('.story-listen').getAttribute('source');
+                fetchBlob(url, function(blob) {
+                    playAmrBlob(blob);
+                });
+            };
+        }
+    },3000);
+
 }
