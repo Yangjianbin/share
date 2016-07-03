@@ -187,11 +187,16 @@ function playPcm(samples) {
     src.start();
 }
 
-if(E('.story-listen')){
-    E('.story-listen').onclick = function() {
-        var url = E('.story-listen').getAttribute('source');
-        fetchBlob(url, function(blob) {
-            playAmrBlob(blob);
-        });
-    };
+window.onload = function(){
+    setTimeout(function(){
+        if(E('.story-listen')){
+            E('.story-listen').onclick = function() {
+                var url = E('.story-listen').getAttribute('source');
+                fetchBlob(url, function(blob) {
+                    playAmrBlob(blob);
+                });
+            };
+        }
+    },3000);
+
 }
