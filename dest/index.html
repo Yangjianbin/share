@@ -21,7 +21,7 @@
         <div class="carousel">
             <div class="carousel-imgs">
                 <img v-for="o in Images" class="{'active':$index==0}" :src="'http://img.uboxs.net/'+o.id+'-'+o.hash" alt="">
-                
+
             </div>
             <ul class="carousel-dots">
                 <li v-for="o in Images.length"  class="{'active':o==0} carousel-dot"></li>
@@ -32,7 +32,7 @@
                 <span class="detail-price-int">￥{{Price.lowest/100}}.</span>
                 <span class="detail-price-decimal">00</span>
                 <span class="detail-oldprice">官网价格：<span style="text-decoration:line-through">￥{{OldPrice.lowest/100}}.00</span></span>
-                <span class="detail-stock">库存：{{total_amount}}</span>
+                <span class="detail-stock">{{'库存：'+total_amount}}</span>
             </div>
             <div class="detail-title">
                 {{title}}
@@ -75,7 +75,7 @@
                     <div class="comment-con">
                         <div class="comment-username">
                             {{o.Account.nickname}}
-                            <span class="comment-floor fr">{{o.Reply.floor}}楼</span>
+                            <span class="comment-floor fr">{{o.Reply.floor+'楼'}}</span>
                         </div>
 
                         <div class="comment-body">

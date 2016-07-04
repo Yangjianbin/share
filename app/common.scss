@@ -53,12 +53,14 @@ body{
 .carousel{
     width: 100%;
     position:relative;
+    height: 25rem;
+    overflow: hidden;
     .carousel-imgs{
         img{
-            // width:100%;
+            width:100%;
             margin:auto;
-            margin-top: 1rem;
-            height:22rem;
+            margin-top: 0rem;
+            // height:22rem;
             display: none;
             transition: display 1s;
             -webkit-transition: display 1s;
@@ -72,7 +74,7 @@ body{
     }
     .carousel-dots{
         position:absolute;
-        top:80%;
+        top:85%;
         width:100%;
         text-align:center;
         li{
@@ -208,10 +210,10 @@ header{
 footer{
     position: fixed;
     bottom: 0px;
-    display: -webkit-box;    
-    display: -moz-box;       
+    display: -webkit-box;
+    display: -moz-box;
     display: -ms-flexbox;
-    display: flex;  
+    display: flex;
     display: -webkit-flex;
     align-items:center;
     justify-content: space-between;
@@ -220,6 +222,7 @@ footer{
     padding-top: 1em;
     padding-bottom: 1em;
     background-color: rgba(255,255,255,.92);
+    border-top: 1px solid #ccc;
     .footer-text{
         font-size: $ft24;
         color:rgba(0,0,0,.54);

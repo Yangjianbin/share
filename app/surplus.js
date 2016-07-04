@@ -1,5 +1,6 @@
 require('./surplus.scss')
 var $ = require('jquery');
+require('jquery-touchswipe');
 var scale = parseInt($('html').css('font-size')) *  $(window).width() / 720;
 $('html,body').css('font-size',scale );
 var Vue = require('vue');
@@ -54,6 +55,7 @@ var vm = new Vue({
                     var location = schools.result[d.Item.schoolid]['campuses'][d.Item.location]['name'];
                     d.school_location = school + location;
                     vm.$data = d;
+                    vm.$data.ok=true;
                 }
             })
             var shareImgUrl = 'http://static-test.uboxs.com/html/images/logo.png';
@@ -119,6 +121,17 @@ var vm2 = new Vue({
 
 var carousel = require('./components/carousel');
 carousel.init();
+
+$('.carousel').on('click','img',function(e){
+    var src = $(this).attr('src');
+    var urls = [];
+    $('.carousel').find('img').map(function(){urls.push($(this).attr('src'))});
+    wx.previewImage({
+        'current': src,
+        'urls':urls
+    });
+})
+
 
 var gAudioContext = new AudioContext();
 
@@ -198,5 +211,4 @@ window.onload = function(){
             };
         }
     },3000);
-
 }

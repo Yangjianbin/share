@@ -19,7 +19,7 @@
             <a href="http://app.uboxs.com/download.php" class="header-btn download-btn">下载App</a><a href="http://app.uboxs.com/download.php" class="header-btn open-btn">从App中打开</a>
         </div>
     </header>
-    <div class="section" id="app" v-cloak>
+    <div class="section" id="app" v-cloak  v-if="ok">
         <div class="carousel">
             <div class="carousel-imgs">
                 <img v-for="o in Images" class="{'active':$index==0}" src="http://img.uboxs.net/{{o.imageid}}-{{o.hash}}" alt="">
@@ -52,10 +52,10 @@
                     </div>
                     <div class="detail-source-items">
                         <span class="detail-source-item">
-                            库存：{{Item.amount}}
+                            {{'库存：'+Item.amount}}
                         </span>
                         <span class="detail-source-item">
-                            成色：{{Item.degree}}
+                            {{'成色：'+Item.degree}}
                         </span>
                     </div>
                     <div class="detail-source-safty-real">
@@ -72,7 +72,7 @@
             </div>
 
             <div class="view">
-                 {{Item.addtime | lastMinutes}}前 · {{school_location}} · 浏览 {{Item.value_click}}
+                 {{Item.addtime | lastMinutes}}前 · {{school_location}} · {{'浏览 '+Item.value_click}}
             </div>
 
         </div>
@@ -93,7 +93,7 @@
 
 
     </div>
-    <div class="section" id="app2" v-cloak>
+    <div class="section" id="app2" v-cloak >
         <div class="comments">
             <div class="comments-header">
                 最新评论 ({{total}})
@@ -105,7 +105,7 @@
                 <div class="comment-con">
                     <div class="comment-username">
                         {{o.Account.nickname}}
-                        <span class="comment-floor fr">{{o.Reply.floor}}楼</span>
+                        <span class="comment-floor fr">{{o.Reply.floor+'楼'}}</span>
                     </div>
 
                     <div class="comment-body">

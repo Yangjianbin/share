@@ -85,3 +85,13 @@ var vm2 = new Vue({
 
 var carousel = require('./components/carousel');
 carousel.init();
+
+$('.carousel').on('click','img',function(e){
+    var src = $(this).attr('src');
+    var urls = [];
+    $('.carousel').find('img').map(function(){urls.push($(this).attr('src'))});
+    wx.previewImage({
+        'current': src,
+        'urls':urls
+    });
+})
