@@ -131,7 +131,17 @@ $('.carousel').on('click','img',function(e){
         'urls':urls
     });
 })
-
+$('.story').on('click','a',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var href = $(this).attr('href');
+    var urls = [];
+    $('.story .detail-img-thumb').find('a').map(function(){urls.push($(this).attr('href'))});
+    wx.previewImage({
+        'current': href,
+        'urls':urls
+    });
+})
 
 var gAudioContext = new AudioContext();
 
@@ -211,4 +221,5 @@ window.onload = function(){
             };
         }
     },3000);
+
 }
