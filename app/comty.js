@@ -123,3 +123,6 @@ var vm2 = new Vue({
 
     }
 })
+$('.open-btn').click(function () {
+    location.href = './open.php?t=post&id='+getQueryString('id');
+})

@@ -95,3 +95,7 @@ $('.carousel').on('click','img',function(e){
         'urls':urls
     });
 })
+
+$('.open-btn').click(function () {
+    location.href = './open.php?t=oitem&id='+getQueryString('id');
+})
