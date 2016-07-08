@@ -119,13 +119,29 @@ var vm2 = new Vue({
     }
 })
 
-var carousel = require('./components/carousel');
-carousel.init();
+// var carousel = require('./components/carousel');
+// carousel.init();
 
-$('.carousel').on('click','img',function(e){
+$(function() {
+    setTimeout(function(){
+        new Swipe(document.getElementById('banner_box'), {
+            speed : 500,
+            auto : 3000,
+            callback : function() {
+                var lis = $(this.element).next("ol").children();
+                lis.removeClass("on").eq(this.index).addClass("on");
+            }
+        });
+    },2000)
+    
+});
+
+
+
+$('.box_swipe').on('click','img',function(e){
     var src = $(this).attr('src');
     var urls = [];
-    $('.carousel').find('img').map(function(){urls.push($(this).attr('src'))});
+    $('.box_swipe').find('img').map(function(){urls.push($(this).attr('src'))});
     wx.previewImage({
         'current': src,
         'urls':urls

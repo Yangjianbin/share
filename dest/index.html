@@ -18,15 +18,17 @@
         </div>
     </header>
     <div class="section" id="app" v-cloak>
-        <div class="carousel">
-            <div class="carousel-imgs">
-                <img v-for="o in Images" class="{'active':$index==0}" :src="'http://img.uboxs.net/'+o.id+'-'+o.hash" alt="">
-
-            </div>
-            <ul class="carousel-dots">
-                <li v-for="o in Images.length"  class="{'active':o==0} carousel-dot"></li>
+        
+        <!--start banner-->
+        <div id="banner_box" class="box_swipe">
+            <ul>
+                <li v-for="o in Images"  >
+                    <img :src="'http://img.uboxs.net/'+o.id+'-'+o.hash" alt="" style="width:100%;" />
+                </li>
             </ul>
+                </li><ol> <li v-for="o in Images.length"  class="{'active':o==0} on"></li></ol>
         </div>
+        <!--end banner-->
         <div class="details"  >
             <div class="detail-price">
                 <span class="detail-price-int">￥{{Price.lowest/100}}.</span>
@@ -112,4 +114,5 @@
 <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="./common.js"></script>
 <script src="./detail.js"></script>
+<script src="./swipe.js"></script>
 </html>

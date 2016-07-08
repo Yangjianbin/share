@@ -20,14 +20,16 @@
         </div>
     </header>
     <div class="section" id="app" v-cloak  v-if="ok">
-        <div class="carousel">
-            <div class="carousel-imgs">
-                <img v-for="o in Images" class="{'active':$index==0}" src="http://img.uboxs.net/{{o.imageid}}-{{o.hash}}" alt="">
-            </div>
-            <ul class="carousel-dots">
-                <li v-for="o in Images.length"  class="{'active':o==0} carousel-dot"></li>
+        <!--start banner-->
+        <div id="banner_box" class="box_swipe">
+            <ul>
+                <li v-for="o in Images"  >
+                    <img src="http://img.uboxs.net/{{o.imageid}}-{{o.hash}}" alt="" style="width:100%;" />
+                </li>
             </ul>
+                </li><ol> <li v-for="o in Images.length"  class="{'active':o==0} on"></li></ol>
         </div>
+        <!--end banner-->
         <div class="details">
             <div class="detail-price">
                 <span class="detail-price-int">￥{{Item.price/100}}.</span>
@@ -145,4 +147,5 @@
 <script src="./amrnb.js"></script>
 <script src="./common.js"></script>
 <script src="./surplus.js"></script>
+<script src="./swipe.js"></script>
 </html>

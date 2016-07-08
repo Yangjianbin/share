@@ -248,3 +248,34 @@ footer{
 [v-cloak] {
   display: none;
 }
+
+.box_swipe {
+    overflow: hidden;
+    position: relative;
+    height:25rem;
+}
+.box_swipe ul {
+    -webkit-padding-start: 0px;
+    height: 25rem;
+    overflow: hidden;
+}
+
+.box_swipe > ol {
+    height: 3rem;
+    position: absolute;
+    z-index: 10;
+    top:88%;
+    width:100%;
+    text-align: center;
+}
+.box_swipe > ol > li {
+    display: inline-block;
+    margin: 0 .5rem;
+    height:1em;
+    width:1em;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+.box_swipe > ol > li.on {
+    background-color: #ffffff;
+}
