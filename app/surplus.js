@@ -132,8 +132,8 @@ $(function() {
                 lis.removeClass("on").eq(this.index).addClass("on");
             }
         });
-    },2000)
-    
+    },1000)
+
 });
 
 
