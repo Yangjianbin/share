@@ -12,12 +12,13 @@
             content: '估';
             background-color: #ff9000;
             font-size: $ft20;
-            line-height:2rem;
-            transform:translate(0,-0.1rem);
-            padding:0 .5rem;
+            transform:scaleY(.9);
             border-radius: 4px;
             color:$white;
             display:inline-block;
+            width: 2rem;
+            text-align: center;
+            vertical-align: text-bottom;
         }
     }
 
