@@ -110,6 +110,6 @@ $(function() {
     
 });
 
-$('.open-btn').click(function () {
+$('.do-open-in-app').click(function () {
     location.href = './open.php?t=oitem&id='+getQueryString('id');
 })

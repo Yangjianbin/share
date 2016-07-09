@@ -16,7 +16,7 @@
             <p class="logo-text">
                 一个属于大学生的闲置物品交易社区
             </p>
-            <a href="http://app.uboxs.com/download.php" class="header-btn download-btn">下载App</a><a href="javascript:;" class="header-btn open-btn">从App中打开</a>
+            <a href="http://app.uboxs.com/download.php" class="header-btn download-btn">下载App</a><a href="javascript:;" class="header-btn open-btn do-open-in-app">从App中打开</a>
         </div>
     </header>
     <div class="section" id="app" v-cloak>
@@ -45,7 +45,7 @@
             </div>
             <div class="" v-bind:class="attachments.length==1?'detail-imgs0':'detail-imgs'">
                 <div class="detail-img" v-for="(k,o) in attachments">
-                    <img src="http://img.uboxs.net/{{o.data.id}}-{{o.data.hash}}" alt="">
+                    <img class="open-in-wx" src="http://img.uboxs.net/{{o.data.id}}-{{o.data.hash}}" alt="">
                 </div>
 
             </div>

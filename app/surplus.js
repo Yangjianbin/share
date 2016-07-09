@@ -159,7 +159,7 @@ $('.story').on('click','a',function(e){
     });
 })
 
-$('.open-btn').click(function () {
+$('.do-open-in-app').click(function () {
     location.href = './open.php?t=item&id='+getQueryString('itemid');
 })
 

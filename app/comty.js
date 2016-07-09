@@ -123,6 +123,17 @@ var vm2 = new Vue({
 
     }
 })
-$('.open-btn').click(function () {
+$('.do-open-in-app').click(function () {
     location.href = './open.php?t=post&id='+getQueryString('id');
+})
+
+$('#app').on('click','img',function(e){
+    if(!$(this).hasClass('open-in-wx')) return ;
+    var src = $(this).attr('src');
+    var urls = [];
+    $('.detail-img').find('img').map(function(){urls.push($(this).attr('src'))});
+    wx.previewImage({
+        'current': src,
+        'urls':urls
+    });
 })
