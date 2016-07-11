@@ -68,7 +68,7 @@ var vm = new Vue({
                   wx.ready(function(){
                   var shareData = {
                     title: d.Item.title,
-                    desc: d.Item.content_decode,
+                    desc: '￥'+d.Item.price/100 +'·'+d.Item.content_decode,
                     imgUrl: shareImgUrl
                   }
                   wx.onMenuShareTimeline(shareData);
