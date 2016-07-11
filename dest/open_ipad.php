@@ -32,23 +32,23 @@
         if(isrefresh == 1) {
             return;
         }
-        var loadDateTime = new Date(); 
-        window.setTimeout(function() {  
-            var timeOutDateTime = new Date();  
-            if (timeOutDateTime - loadDateTime < 2000) {  
-                window.location.href += '&refresh=1'; 
+        var loadDateTime = new Date();
+        window.setTimeout(function() {
+            var timeOutDateTime = new Date();
+            if (timeOutDateTime - loadDateTime < 2000) {
+                window.location.href += '&refresh=1';
             } else {
-                //window.close();  
-            }  
-        },  50);  
+                //window.close();
+            }
+        },  1000);  
         window.location = 'ygzp://j?t='+getUrlParam('t')+'&id='+getUrlParam('id');
     }
-    function getUrlParam(name) {  
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");  
-        var r = window.location.search.substr(1).match(reg);  
-        if (r!=null)   
-           return unescape(r[2]);   
-        return null;    
-    }  
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null)
+           return unescape(r[2]);
+        return null;
+    }
 </script>
 </html>
