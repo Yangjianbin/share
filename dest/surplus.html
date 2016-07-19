@@ -32,9 +32,9 @@
         <!--end banner-->
         <div class="details">
             <div class="detail-price">
-                <span class="detail-price-int">￥{{Item.price/100}}.</span>
-                <span class="detail-price-decimal">00</span>
-                <span class="detail-oldprice">原价：<span style="text-decoration:line-through">￥{{Item.oldprice/100}}.00</span></span>
+                <span class="detail-price-int">￥{{parseInt(Item.price/100)}}.</span>
+                <span class="detail-price-decimal">{{Item.price%100<10?"0":""}}{{Item.price%100}}</span>
+                <span class="detail-oldprice">原价：<span style="text-decoration:line-through">￥{{parseInt(Item.oldprice/100)}}.{{Item.oldprice%100<10?"0":""}}{{Item.oldprice%100}}</span></span>
                 <!-- <span class="detail-stock">库存：20</span> -->
             </div>
             <div class="detail-title">

@@ -18,7 +18,7 @@
         </div>
     </header>
     <div class="section" id="app" v-cloak>
-        
+
         <!--start banner-->
         <div id="banner_box" class="box_swipe">
             <ul>
@@ -31,9 +31,9 @@
         <!--end banner-->
         <div class="details"  >
             <div class="detail-price">
-                <span class="detail-price-int">￥{{Price.lowest/100}}.</span>
-                <span class="detail-price-decimal">00</span>
-                <span class="detail-oldprice">官网价格：<span style="text-decoration:line-through">￥{{OldPrice.lowest/100}}.00</span></span>
+                <span class="detail-price-int">￥{{parseInt(Price.lowest/100)}}.</span>
+                <span class="detail-price-decimal">{{Price.lowest%100<10?"0":""}}{{Price.lowest%100}}</span>
+                <span class="detail-oldprice">官网价格：<span style="text-decoration:line-through">￥{{parseInt(OldPrice.lowest/100)}}.{{OldPrice.lowest%100<10?"0":""}}{{OldPrice.lowest%100}}</span></span>
                 <span class="detail-stock">{{'库存：'+total_amount}}</span>
             </div>
             <div class="detail-title">
