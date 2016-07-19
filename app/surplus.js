@@ -52,7 +52,14 @@ var vm = new Vue({
                 dataType: 'json',
                 success: function(schools) {
                     var school = schools.result[d.Item.schoolid]['name'];
-                    var location = schools.result[d.Item.schoolid]['campuses'][d.Item.location]['name'];
+                    var campusesArr = schools.result[d.Item.schoolid]['campuses'];
+                    var location = '';
+                    for(var i =0;i<campusesArr.length;i++){
+                        if(d.Item.location == campusesArr[i]['id']){
+                            location = campusesArr[i]['name'];
+                        }
+                    }
+                    //var location = schools.result[d.Item.schoolid]['campuses'][d.Item.location]['name'];
                     d.school_location = school + location;
                     vm.$data = d;
                     vm.$data.ok=true;
