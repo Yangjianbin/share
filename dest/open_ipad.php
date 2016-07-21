@@ -30,6 +30,8 @@
     window.onload = function(){
         var isrefresh = getUrlParam('refresh'); // 获得refresh参数
         if(isrefresh == 1) {
+            //jump to download page
+            window.location.href = 'http://app.uboxs.com/download.php';
             return;
         }
         var loadDateTime = new Date();
@@ -40,7 +42,7 @@
             } else {
                 //window.close();
             }
-        },  1000);  
+        },  1000);
         window.location = 'ygzp://j?t='+getUrlParam('t')+'&id='+getUrlParam('id');
     }
     function getUrlParam(name) {
