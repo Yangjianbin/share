@@ -11,6 +11,22 @@ function getQueryString(name) {
     if (r != null) return unescape(r[2]);
     return null;
 }
+Vue.filter('condition',function(value){
+    value = parseInt(value);
+    var str;
+    if(value == 100){
+        str = "全新";
+    }else if(value >=80){
+        str = '很新';
+    }else if(value>=70 && value<80){
+        str = '一般';
+    }else if(value>=60 && value<70){
+        str = '略旧';
+    }else{
+        str ='损毁';
+    }
+    return '成色：'+ str;
+})
 Vue.filter('datetime', function(value) {
     var date = new Date();
     date.setTime(value * 1000);
@@ -39,7 +55,7 @@ var vm = new Vue({
     el: '#app',
     ready: function() {
         $.ajax({
-            url: 'http://v2.api.boxbuy.cc/getItemDetail?type=json',
+            url: 'http://v2.api.uboxs.com/getItemDetail?type=json',
             type: 'post',
             data: {
                 itemid: getQueryString('itemid')
